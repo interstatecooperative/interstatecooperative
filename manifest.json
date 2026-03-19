@@ -1,11 +1,11 @@
 {
-    "name": "interstateservicebank",
-    "short_name": "interstateservicebank",
+    "name": "interstatesaving_new",
+    "short_name": "interstatesaving_new",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Interstate_Savings_Bank",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
