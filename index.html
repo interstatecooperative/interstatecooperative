@@ -19,6 +19,27 @@
 
   <title>Interstate Savings Bank</title>
   <link rel="manifest" href="manifest.json">
+
+  <!--
+    No-op stub for the `passkeys_web` plugin, which is pulled in transitively by
+    Supabase (gotrue). This app does not use passkeys. Without this stub,
+    passkeys_web detects its Corbado SDK is missing at startup and calls
+    window.close(), halting the app; and it immediately calls
+    PasskeyAuthenticator.init(), so the global must also expose that method (and
+    the others it interops with) or main() throws and the page stays blank.
+    Must run before flutter_bootstrap.js.
+  -->
+  <script>
+    window.PasskeyAuthenticator = window.PasskeyAuthenticator || {
+      init: function () {},
+      register: function () { return Promise.reject('passkeys not supported'); },
+      login: function () { return Promise.reject('passkeys not supported'); },
+      cancelCurrentAuthenticatorOperation: function () {},
+      isUserVerifyingPlatformAuthenticatorAvailable: function () { return Promise.resolve(false); },
+      isConditionalMediationAvailable: function () { return Promise.resolve(false); },
+      hasPasskeySupport: function () { return false; }
+    };
+  </script>
 </head>
 <body>
 
